@@ -1,0 +1,20 @@
+jobs:
+- name: package
+  plan:
+  - get: source-code
+    trigger: true
+  - task: package
+    privileged: true
+    file: source-code/ci/tasks/package.yml
+    on_failure:
+      put: atomist
+      params:
+        status: failed
+    on_success:
+      put: atomist
+      params:
+        status: passed
+  - put: resource-deploy-web-app
+    params:
+      manifest: source-code/manifest.yml
+      path: build-output/cd20-0.1.0-SNAPSHOT.jar
