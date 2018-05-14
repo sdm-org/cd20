@@ -1,3 +1,5 @@
+// I believe in you. You can do the thing!
+
 /*
  * Copyright © 2018 Atomist, Inc.
  *
