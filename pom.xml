@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
    <modelVersion>4.0.0</modelVersion>
-   <groupId>atomist</groupId>
+   <groupId>com.atomist</groupId>
    <artifactId>cd20</artifactId>
-   <version>0.1.0-SNAPSHOT</version>
+   <version>0.1.0-${timestamp}</version>
    <packaging>jar</packaging>
-   <name>spring-rest-seed</name>
+   <name>cd20</name>
    <description>my new project</description>
    <parent>
       <groupId>org.springframework.boot</groupId>
@@ -71,9 +71,9 @@
         <url>https://atomist.jfrog.io/atomist/libs-release-local</url>
       </repository>
       <snapshotRepository>
-        <id>atomist-snapshots</id>
+        <id>atomist-snapshot</id>
         <name>Atomist Snapshots</name>
-        <url>https://atomist.jfrog.io/atomist/libs-snapshot-local</url>
+        <url>https://atomist.jfrog.io/atomist/libs-snapshot-demo</url>
       </snapshotRepository>
     </distributionManagement>
 </project>

@@ -2,28 +2,14 @@
 
 set -e -u -x
 
-M2_HOME=${HOME}/.m2
-mkdir -p ${M2_HOME}
- 
-cwd=$(pwd)
-M2_LOCAL_REPO="${cwd}/.m2"
-mkdir -p "${M2_LOCAL_REPO}/repository"
- 
-cat > ${M2_HOME}/settings.xml <<EOF
- 
-<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
-                          https://maven.apache.org/xsd/settings-1.0.0.xsd">
-      <localRepository>${M2_LOCAL_REPO}/repository</localRepository>
-</settings>
- 
-EOF
-
-echo $USERNAME $PASSWORD
+timestamp=`date "+%Y%m%d-%H%M%S"`
 
 cd source-code/
+  ./mvnw build-helper:parse-version versions:set -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.incrementalVersion}-\${timestamp} versions:commit
+  project_version=$(./mvnw help:evaluate -Dexpression=project.version | grep -v "^\[")
+  echo version is $project_version
   ./mvnw clean package deploy --settings .settings.xml
 cd ..
 
+echo project_version > build-output/version
 cp source-code/target/cd20-0.1.0-SNAPSHOT.jar  build-output/.
