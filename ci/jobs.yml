@@ -6,15 +6,21 @@ jobs:
   - task: package
     privileged: true
     file: source-code/ci/tasks/package.yml
+    params:
+      USERNAME: ((ARTIFACTORY_USER)) 
+      PASSWORD: ((ARTIFACTORY_PASSWORD))
     on_failure:
-      put: atomist
+      put: atomist-build-notify
       params:
         status: failed
     on_success:
-      put: atomist
+      put: atomist-build-notify
       params:
         status: passed
-  - put: resource-deploy-web-app
-    params:
-      manifest: source-code/manifest.yml
-      path: build-output/cd20-0.1.0-SNAPSHOT.jar
+  #- put: artifactory-artifact-deploy
+  #  params: 
+  #    file: build-output/cd20-0.1.0-SNAPSHOT.jar
+  #- put: resource-deploy-web-app
+  #  params:
+  #    manifest: source-code/manifest.yml
+  #    path: build-output/cd20-0.1.0-SNAPSHOT.jar
