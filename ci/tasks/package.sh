@@ -23,7 +23,7 @@ EOF
 echo $USERNAME $PASSWORD
 
 cd source-code/
-  ./mvnw clean package
+  ./mvnw clean package deploy --settings .settings.xml
 cd ..
 
 cp source-code/target/cd20-0.1.0-SNAPSHOT.jar  build-output/.
