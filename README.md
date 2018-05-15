@@ -1,5 +1,5 @@
 # cd20
-my new project
+my new project 
 
 Based on seed project `spring-team:spring-rest-seed`
 
