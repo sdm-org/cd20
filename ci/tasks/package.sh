@@ -11,5 +11,5 @@ cd source-code/
   ./mvnw clean package deploy --settings .settings.xml
 cd ..
 
-echo project_version > build-output/version
-cp source-code/target/cd20-0.1.0-SNAPSHOT.jar  build-output/.
+echo $project_version > build-output/version
+cp source-code/target/cd20-${project_version}.jar  build-output/.
