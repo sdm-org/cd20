@@ -20,6 +20,8 @@ cat > ${M2_HOME}/settings.xml <<EOF
  
 EOF
 
+echo $USERNAME $PASSWORD
+
 cd source-code/
   ./mvnw clean package
 cd ..
