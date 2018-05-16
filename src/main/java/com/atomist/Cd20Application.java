@@ -1,3 +1,5 @@
+// some random comment at the top
+
 /*
  * Copyright © 2018 Atomist, Inc.
  *
