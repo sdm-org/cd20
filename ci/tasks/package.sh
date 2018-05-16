@@ -12,5 +12,5 @@ cd source-code/
   artifact=$(grep -E -m 1 -o "<artifactId>(.*)</artifactId>" pom.xml | sed 's/<artifactId>//' | sed 's/<\/artifactId>//')
 cd ..
 
-echo { artifact: [{ \"group\": \"$group\", \"artifact\": \"$artifact\", \"version\": \"$version\", \"repositoryUrl\": \"$REPOSITORY_URL\" }] } > build-output/gav
+echo { \"artifact\": [{ \"group\": \"$group\", \"artifact\": \"$artifact\", \"version\": \"$version\", \"repositoryUrl\": \"$REPOSITORY_URL\" }] } > build-output/gav
 cp source-code/target/cd20-${version}.jar  build-output/.
