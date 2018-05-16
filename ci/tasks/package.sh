@@ -13,4 +13,4 @@ cd source-code/
 cd ..
 
 echo { \"group\": \"$group\", \"artifact\": \"$artifact\", \"version\": \"$version\", \"repositoryUrl\": \"$REPOSITORY_URL\" } > build-output/gav
-cp source-code/target/cd20-${project_version}.jar  build-output/.
+cp source-code/target/cd20-${version}.jar  build-output/.
