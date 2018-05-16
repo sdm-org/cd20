@@ -2,7 +2,11 @@ jobs:
 - name: package
   plan:
   - get: source-code
-    trigger: true
+    trigger: false
+    on_success:
+      put: atomist-build-notify
+      params:
+        status: started
   - task: package
     privileged: true
     file: source-code/ci/tasks/package.yml

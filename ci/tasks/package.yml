@@ -13,7 +13,7 @@ outputs:
   - name: build-output
 
 caches:
-  - path: .m2
+  - path: source-code/.m2
 
 run:
   path: source-code/ci/tasks/package.sh
