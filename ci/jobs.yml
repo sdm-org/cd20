@@ -13,6 +13,7 @@ jobs:
     params:
       USERNAME: ((ARTIFACTORY_USER)) 
       PASSWORD: ((ARTIFACTORY_PASSWORD))
+      REPOSITORY_URL: https://atomist.jfrog.io/atomist/libs-release-local
     on_failure:
       put: atomist-build-notify
       params:
