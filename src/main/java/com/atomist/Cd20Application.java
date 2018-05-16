@@ -1,4 +1,5 @@
 // some random comment at the top
+// more kicking
 
 /*
  * Copyright © 2018 Atomist, Inc.
