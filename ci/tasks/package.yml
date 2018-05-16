@@ -14,7 +14,6 @@ outputs:
 
 caches:
   - path: source-code/.m2
-  - path: source-code/.mvn
 
 run:
   path: source-code/ci/tasks/package.sh
