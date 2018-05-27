@@ -9,3 +9,5 @@ atomist:
   environment:
       domain: '${ATOMIST_ENVIRONMENT:${vcap.application.space_name:development}}'
       pod: '${HOSTNAME:${random.value}}'
+raven:
+  dsn: 'https://03cfa203669f42118c981909c1517826@sentry.io/1214452'
